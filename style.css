@@ -182,4 +182,10 @@ body {
       transform: scale(1.3) translateY(-100px) rotate(360deg);
     }
   }
+  .emoji.day {
+    filter: brightness(200%);
+  }
   
+  .emoji.night {
+    filter: brightness(50%);
+  }
