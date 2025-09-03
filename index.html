@@ -1,43 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App</title>
-    <link rel="stylesheet" href="style.css">
-    
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Weather Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-        
-    <div class="container">
-        <h3>Current Temperature</h3>
-        <input type="text" id="city-input" placeholder="Enter city name">
-        <button id="search-button" onclick="fetchData()">Search</button>
-        <div class="weather-info">
-            <h2 id="city-name"></h2>
-            <ul id="weather-list"></ul>
-            <p id="temp"></p>
-            <p id="conditions"></p>
-        </div>
-    </div>
-    <div class="wrapper">
-        <!-- <h1>Bubbles Animation</h1> -->
-        <div><span class="dot"></span></div>
-        <div><span class="dot"></span></div>
-        <div><span class="dot"></span></div>
-        <div><span class="dot"></span></div>
-        <div><span class="dot"></span></div>
-        <div><span class="dot"></span></div>
-        <div><span class="dot"></span></div>
-        <div><span class="dot"></span></div>
-        <div><span class="dot"></span></div>
-        <div><span class="dot"></span></div>
-        <div><span class="dot"></span></div>
-        <div><span class="dot"></span></div>
-        <div><span class="dot"></span></div>
-        <div><span class="dot"></span></div>
-        <div><span class="dot"></span></div>
+  <div class="dashboard">
+    <header class="header">
+      <h1>🌦️ Weather Dashboard</h1>
+      <div class="search-box">
+        <input id="cityInput" type="text" placeholder="Enter city or state..." />
+        <button id="searchBtn">🔍</button>
+        <button id="locateBtn" title="Use current location">📍</button>
       </div>
-    <script src="script.js"></script>
+    </header>
+
+    <div id="status" class="status"></div>
+
+    <!-- Current Weather -->
+    <section class="main-info">
+      <div class="current-weather card">
+        <h2 id="location">—</h2>
+        <div class="temp-line">
+          <span id="temperature">—</span>
+          <img id="icon" alt="" />
+        </div>
+        <p id="description">—</p>
+        <div class="metrics">
+          <p id="feels">—</p>
+          <p id="humidity">—</p>
+          <p id="wind">—</p>
+          <p id="visibility">—</p>
+          <p id="pressure">—</p>
+        </div>
+        <div class="sun">
+          <p id="sunrise">—</p>
+          <p id="sunset">—</p>
+        </div>
+        <p id="alerts" class="alerts"></p>
+      </div>
+
+      <!-- Air Quality -->
+      <div class="air-quality card">
+        <h3>Air Quality</h3>
+        <p id="airQuality">—</p>
+        <ul id="aqBreakdown"></ul>
+      </div>
+    </section>
+
+    <!-- Forecast -->
+    <section class="forecast card">
+      <h3>5-Day Forecast</h3>
+      <div id="forecast" class="forecast-grid"></div>
+    </section>
+
+    <!-- Hourly Forecast -->
+    <section class="hourly card">
+      <h3>Next Hours</h3>
+      <div id="hourlyForecast" class="hourly-forecast"></div>
+    </section>
+
+    <!-- Radar Map -->
+    <section class="map card">
+      <h3>Radar</h3>
+      <iframe
+        id="radarMap"
+        src="https://embed.windy.com/embed2.html?lat=20&lon=78&zoom=4&level=surface&overlay=rain&menu=&message=&marker=&calendar=&pressure=&type=map&location=coordinates&detail=&detailLat=20&detailLon=78&metricWind=default&metricTemp=default&radarRange=-1"
+        frameborder="0"
+        width="100%"
+        height="300"
+      ></iframe>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
